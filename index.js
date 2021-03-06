@@ -30,7 +30,7 @@ app.get('/api/notes', (req, res) => {
 
 app.get('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id);
-  const note = notes.find(note => note.id === id);
+  const note = notes.find((note) => note.id === id);
 
   if (note) {
     res.json(note);
@@ -41,7 +41,7 @@ app.get('/api/notes/:id', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id);
-  notes = notes.filter(note => note.id !== id);
+  notes = notes.filter((note) => note.id !== id);
   res.status(204).end();
 });
 
@@ -54,7 +54,7 @@ app.post('/api/notes', (req, res) => {
     });
   }
 
-  const ids = notes.map(note => note.id);
+  const ids = notes.map((note) => note.id);
   const maxId = Math.max(...ids);
 
   const newNote = {
